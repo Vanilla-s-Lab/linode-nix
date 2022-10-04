@@ -16,6 +16,12 @@
       linode = nixos-generators.nixosGenerate {
         inherit system;
         format = "linode";
+
+        modules = [
+          ./users.nix
+          ./network.nix
+          ./openssh.nix
+        ];
       };
     });
 }
