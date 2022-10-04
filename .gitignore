@@ -39,3 +39,6 @@ terraform.rc
 
 # IntelliJ IDEA
 .idea
+
+# https://direnv.net/
+.direnv
