@@ -15,7 +15,7 @@
 
       devShell = pkgs.mkShell {
         shellHook = ''
-          export LINODE_TOKEN=(cat /run/secrets/linode-nix/token)
+          export LINODE_TOKEN=$(cat /run/secrets/linode-nix/token)
         '';
       };
 
