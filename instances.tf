@@ -3,8 +3,9 @@ resource "linode_instance" "nixos" {
   region = "ap-northeast" # jp
 
   # https://api.linode.com/v4/linode/types
-  type  = "g6-nanode-1"
-  label = "nixos"
+  type   = "g6-nanode-1"
+  label  = "nixos"
+  booted = true
 }
 
 output "ip_address" {
@@ -35,6 +36,7 @@ resource "linode_instance_disk" "swap" {
 resource "linode_instance_config" "nixos" {
   linode_id = linode_instance.nixos.id
   label     = "nixos"
+  booted    = true
 
   # https://api.linode.com/v4/linode/kernels
   kernel = "linode/grub2"
