@@ -1,14 +1,17 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    flake-utils.url = "github:numtide/flake-utils";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = { nixpkgs, flake-utils, nixpkgs-unstable, ... }:
-    flake-utils.lib.eachSystem [ flake-utils.lib.system.x86_64-linux ] (system: rec {
-      pkgs = nixpkgs.legacyPackages."${system}";
+  outputs = { nixpkgs, nixpkgs-unstable, deploy-rs, ... }:
+    let system = "x86_64-linux"; in
+    rec {
+      pkgs = import nixpkgs {
+        inherit system;
+      };
 
       linode = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -20,5 +23,16 @@
       };
 
       linode-image = linode.config.system.build.linodeImage;
-    });
+
+      deploy.nodes.linode = {
+        sshUser = "root";
+        hostname = "139.162.105.188";
+
+        profiles.system.path =
+          deploy-rs.lib."${system}".activate.nixos
+            linode;
+      };
+
+      fastConnection = true;
+    };
 }
