@@ -60,9 +60,4 @@ resource "linode_instance_config" "nixos" {
     // noinspection HCLUnknownBlockType
     sdb { disk_id = linode_instance_disk.swap.id }
   }
-
-  // noinspection HCLUnknownBlockType
-  interface {
-    purpose = "public"
-  }
 }
