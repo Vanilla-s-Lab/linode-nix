@@ -13,4 +13,6 @@
       hash = "sha256-ASglsi7Ape5I9MabvIiWXPI7IeumBaoVTb+pX3Hm5EA=";
     });
   };
+
+  users.mutableUsers = false;
 }
