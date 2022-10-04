@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  users.users."Vanilla" = {
+  users.users."vanilla" = {
     isNormalUser = true;
     shell = pkgs.fish;
 
