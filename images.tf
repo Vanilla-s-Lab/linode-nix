@@ -1,14 +1,15 @@
 locals {
-  # TODO: Edit this line when changing; or use "local-exec".
-  img_name = "nixos-image-22.05.20221003.81a3237-x86_64-linux.img.gz"
+  // https://www.terraform.io/language/functions/fileset
+  img_files = fileset(path.module, "result/*.img.gz")
 }
 
 // noinspection MissingProperty
 resource "linode_image" "nixos" {
   label = "nixos"
 
-  file_path = "result/${local.img_name}"
-  file_hash = filemd5("result/${local.img_name}")
+  // https://stackoverflow.com/questions/66069677/get-an-element-from-a-list-terraform
+  file_path = tolist(local.img_files)[0]
+  file_hash = filemd5(tolist(local.img_files)[0])
 
   // TODO: Use "ap-northeast" instead.
   region = "us-east"
