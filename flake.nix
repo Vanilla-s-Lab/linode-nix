@@ -19,7 +19,7 @@
         modules = [ ./users.nix ./network.nix ./openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
-        ] ++ [ ./fail2ban.nix ];
+        ] ++ [ ./fail2ban.nix ./wireguard.nix ];
       };
 
       linode-image = linode.config.system.build.linodeImage;
