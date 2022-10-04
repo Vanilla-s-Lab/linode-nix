@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-let hashedPassword = ""; in
 {
   users.users."Vanilla" = {
     isNormalUser = true;
