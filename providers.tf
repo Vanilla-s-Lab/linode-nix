@@ -14,7 +14,3 @@ terraform {
     }
   }
 }
-
-provider "linode" {
-  token = "LINODE_TOKEN"
-}
