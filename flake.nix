@@ -13,12 +13,6 @@
     flake-utils.lib.eachSystem [ flake-utils.lib.system.x86_64-linux ] (system: rec {
       pkgs = nixpkgs.legacyPackages."${system}";
 
-      devShell = pkgs.mkShell {
-        shellHook = ''
-          export LINODE_TOKEN=$(cat /run/secrets/linode-nix/token)
-        '';
-      };
-
       linode = nixos-generators.nixosGenerate {
         inherit system;
         format = "linode";
