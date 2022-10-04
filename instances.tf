@@ -12,6 +12,10 @@ output "ip_address" {
   value = linode_instance.nixos.ip_address
 }
 
+locals {
+  swap_size = 512
+}
+
 # https://github.com/houstdav000/terranix-linode-poc/blob/main/config.nix
 
 resource "linode_instance_disk" "boot" {
@@ -19,7 +23,7 @@ resource "linode_instance_disk" "boot" {
   label     = "boot"
 
   # https://registry.terraform.io/providers/linode/linode/latest/docs/resources/instance_disk
-  size = linode_instance.nixos.specs.0.disk - 512
+  size = linode_instance.nixos.specs.0.disk - local.swap_size
 
   image     = linode_image.nixos.id
   root_pass = "users.mutableUsers"
@@ -28,7 +32,7 @@ resource "linode_instance_disk" "boot" {
 resource "linode_instance_disk" "swap" {
   linode_id = linode_instance.nixos.id
   label     = "swap"
-  size      = 512
+  size      = local.swap_size
 
   filesystem = "swap"
 }
