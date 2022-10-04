@@ -2,6 +2,8 @@
 {
   users.users."vanilla" = {
     isNormalUser = true;
+    extraGroups = [ "wheel" ];
+
     shell = pkgs.fish;
 
     hashedPassword = "$6" + "$NixOS/Linode" +
