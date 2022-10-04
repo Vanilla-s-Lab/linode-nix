@@ -5,7 +5,6 @@ resource "linode_instance" "nixos" {
   # https://api.linode.com/v4/linode/types
   type   = "g6-nanode-1"
   label  = "nixos"
-  booted = true
 }
 
 output "ip_address" {
