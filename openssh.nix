@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-rec {
+{
   services.openssh.enable = true;
 
   # https://nmap.org/nsedoc/scripts/ssh-auth-methods.html
