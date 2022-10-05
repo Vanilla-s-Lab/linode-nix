@@ -26,7 +26,11 @@
 
       deploy.nodes.linode = {
         sshUser = "root";
-        hostname = "139.162.105.188";
+
+        # hostname = "139.162.105.188";
+
+        hostname = "221.131.165.89";
+        sshOpts = [ "-p" "50022" ];
 
         profiles.system.path =
           deploy-rs.lib."${system}".activate.nixos
