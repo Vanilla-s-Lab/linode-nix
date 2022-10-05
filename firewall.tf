@@ -6,7 +6,7 @@ resource "linode_firewall" "nixos" {
   inbound {
     label    = "allow-dhcp"
     protocol = "UDP"
-    ports    = "67-68"
+    ports    = "67,68"
     ipv4     = ["0.0.0.0/0"]
     ipv6     = ["::/0"]
     action   = "ACCEPT"
