@@ -31,4 +31,8 @@
     "2606:4700:4700::1111"
     "2606:4700:4700::1001"
   ];
+
+  # https://nixos.wiki/wiki/Encrypted_DNS
+  networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
 }
