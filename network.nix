@@ -40,5 +40,6 @@
   environment.systemPackages = [
     pkgs.iperf3
     pkgs.speedtest-cli
+    pkgs.tcpdump
   ];
 }
