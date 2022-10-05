@@ -33,8 +33,9 @@
   ];
 
   # https://nixos.wiki/wiki/Encrypted_DNS
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
+  networking.dhcpcd.enable = true;
+  networking.dhcpcd.extraConfig =
+    "nohook resolv.conf";
 
   environment.systemPackages = [
     pkgs.iperf3
