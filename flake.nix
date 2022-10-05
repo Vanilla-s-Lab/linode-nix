@@ -4,9 +4,12 @@
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     deploy-rs.url = "github:serokell/deploy-rs";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    nixos-cn.url = "github:nixos-cn/flakes";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, deploy-rs, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, deploy-rs, sops-nix, nixos-cn, ... }:
     let system = "x86_64-linux"; in
     rec {
       pkgs = import nixpkgs {
@@ -19,7 +22,9 @@
         modules = [ ./users.nix ./network.nix ./openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
-        ] ++ [ ./fail2ban.nix ./wireguard.nix ./boot.nix ];
+        ] ++ [ ./fail2ban.nix ./wireguard.nix ./boot.nix ]
+          ++ [ sops-nix.nixosModules.sops nixos-cn.nixosModules.nixos-cn ]
+          ++ [ ./shadowsocks.nix ];
       };
 
       linode-image = linode.config.system.build.linodeImage;
