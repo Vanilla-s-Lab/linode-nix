@@ -1,8 +1,13 @@
 { lib, pkgs, ... }:
 rec {
   services.openssh.enable = true;
-  # TODO: Disable all methods except pubkey.
-  # services.openssh.permitRootLogin = "no";
+
+  # https://nmap.org/nsedoc/scripts/ssh-auth-methods.html
+  environment.systemPackages = [
+    pkgs.nmap
+  ];
+
+  services.openssh.kbdInteractiveAuthentication = false;
 
   users.users."root".openssh.authorizedKeys.keyFiles = lib.singleton (pkgs.fetchurl {
     url = "https://github.com/VergeDX.keys"; # Yubikeys 5 NFC
