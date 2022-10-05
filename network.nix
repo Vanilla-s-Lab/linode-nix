@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   networking.hostName = "NixOS-Linode";
   networking.firewall.allowPing = false;
@@ -35,4 +35,9 @@
   # https://nixos.wiki/wiki/Encrypted_DNS
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "none";
+
+  environment.systemPackages = [
+    pkgs.iperf3
+    pkgs.speedtest-cli
+  ];
 }
