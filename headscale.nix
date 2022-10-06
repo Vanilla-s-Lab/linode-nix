@@ -16,4 +16,12 @@
   ];
 
   networking.firewall.checkReversePath = "loose";
+
+  # https://github.com/juanfont/headscale/blob/main/config-example.yaml
+  services.headscale.settings = {
+    ip_prefixes = [
+      "fd7a:115c:a1e0::/48"
+      "100.64.0.0/10"
+    ];
+  };
 }
