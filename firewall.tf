@@ -44,4 +44,14 @@ resource "linode_firewall" "nixos" {
     ipv6     = ["::/0"]
     action   = "ACCEPT"
   }
+
+  // noinspection MissingProperty
+  inbound {
+    label    = "Tailscale"
+    protocol = "UDP"
+    ports    = "41641"
+    ipv4     = ["0.0.0.0/0"]
+    ipv6     = ["::/0"]
+    action   = "ACCEPT"
+  }
 }
