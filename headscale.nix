@@ -23,5 +23,8 @@
       "fd7a:115c:a1e0::/48"
       "100.64.0.0/10"
     ];
+
+    acme_url = "https://acme-v02.api.letsencrypt.org/directory";
+    acme_email = "osu_Vanilla@126.com";
   };
 }
