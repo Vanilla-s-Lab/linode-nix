@@ -16,7 +16,8 @@
       linode = nixpkgs.lib.nixosSystem {
         inherit system;
 
-        modules = [ ./users.nix ./network.nix ./openssh.nix ] ++ [
+        modules = [{ system.stateVersion = "22.05"; }]
+          ++ [ ./users.nix ./network.nix ./openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
         ] ++ [ ./fail2ban.nix ./boot.nix ./tailscale.nix ];
