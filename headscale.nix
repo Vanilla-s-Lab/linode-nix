@@ -15,8 +15,6 @@
     config.services.headscale.package
   ] ++ [ pkgs.htop pkgs.ripgrep ];
 
-  networking.firewall.checkReversePath = "loose";
-
   # https://github.com/juanfont/headscale/blob/main/config-example.yaml
   services.headscale.settings = {
     ip_prefixes = [
