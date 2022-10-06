@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   services.headscale.enable = true;
 
@@ -13,7 +13,7 @@
 
   environment.systemPackages = [
     config.services.headscale.package
-  ];
+  ] ++ [ pkgs.htop pkgs.ripgrep ];
 
   networking.firewall.checkReversePath = "loose";
 
