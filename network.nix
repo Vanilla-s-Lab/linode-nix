@@ -29,5 +29,9 @@
     pkgs.iperf3
     pkgs.speedtest-cli
     pkgs.tcpdump
+
+    pkgs.wget
+    pkgs.unzip
+    pkgs.python3
   ];
 }
