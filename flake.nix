@@ -17,10 +17,10 @@
         inherit system;
 
         modules = [{ system.stateVersion = "22.05"; }]
-          ++ [ ./users.nix ./network.nix ./openssh.nix ] ++ [
+          ++ [ ./users.nix ./network.nix ./services/openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
-        ] ++ [ ./fail2ban.nix ./boot.nix ];
+        ] ++ [ ./services/fail2ban.nix ./boot.nix ];
       };
 
       linode-image = linode.config.system.build.linodeImage;
