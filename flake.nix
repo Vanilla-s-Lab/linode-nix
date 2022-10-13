@@ -36,7 +36,5 @@
           deploy-rs.lib."${system}".activate.nixos
             linode;
       };
-
-      fastConnection = true;
     };
 }
