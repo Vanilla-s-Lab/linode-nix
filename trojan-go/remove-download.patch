@@ -1,0 +1,51 @@
+diff --git a/common/geodata/decode_test.go b/common/geodata/decode_test.go
+index 0c9e164..71bfa89 100644
+--- a/common/geodata/decode_test.go
++++ b/common/geodata/decode_test.go
+@@ -2,10 +2,6 @@ package geodata_test
+ 
+ import (
+ 	"bytes"
+-	"errors"
+-	"io/fs"
+-	"os"
+-	"path/filepath"
+ 	"runtime"
+ 	"testing"
+ 
+@@ -13,35 +9,6 @@ import (
+ 	"github.com/p4gefau1t/trojan-go/common/geodata"
+ )
+ 
+-func init() {
+-	const (
+-		geoipURL   = "https://raw.githubusercontent.com/v2fly/geoip/release/geoip.dat"
+-		geositeURL = "https://raw.githubusercontent.com/v2fly/domain-list-community/release/dlc.dat"
+-	)
+-
+-	wd, err := os.Getwd()
+-	common.Must(err)
+-
+-	tempPath := filepath.Join(wd, "..", "..", "test", "temp")
+-	os.Setenv("TROJAN_GO_LOCATION_ASSET", tempPath)
+-
+-	geoipPath := common.GetAssetLocation("geoip.dat")
+-	geositePath := common.GetAssetLocation("geosite.dat")
+-
+-	if _, err := os.Stat(geoipPath); err != nil && errors.Is(err, fs.ErrNotExist) {
+-		common.Must(os.MkdirAll(tempPath, 0o755))
+-		geoipBytes, err := common.FetchHTTPContent(geoipURL)
+-		common.Must(err)
+-		common.Must(common.WriteFile(geoipPath, geoipBytes))
+-	}
+-	if _, err := os.Stat(geositePath); err != nil && errors.Is(err, fs.ErrNotExist) {
+-		common.Must(os.MkdirAll(tempPath, 0o755))
+-		geositeBytes, err := common.FetchHTTPContent(geositeURL)
+-		common.Must(err)
+-		common.Must(common.WriteFile(geositePath, geositeBytes))
+-	}
+-}
+-
+ func TestDecodeGeoIP(t *testing.T) {
+ 	filename := common.GetAssetLocation("geoip.dat")
+ 	result, err := geodata.Decode(filename, "test")
