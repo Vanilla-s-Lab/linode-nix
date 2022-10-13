@@ -20,7 +20,7 @@
           ++ [ ./users.nix ./network.nix ./services/openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
-        ] ++ [ ./services/fail2ban.nix ./boot.nix ];
+        ] ++ [ ./services/fail2ban.nix ./boot.nix ./services/nginx.nix ];
       };
 
       linode-image = linode.config.system.build.linodeImage;
