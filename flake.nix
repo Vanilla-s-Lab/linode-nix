@@ -20,7 +20,7 @@
           ++ [ ./users.nix ./network.nix ./openssh.nix ] ++ [
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
           "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
-        ] ++ [ ./fail2ban.nix ./boot.nix ./tailscale.nix ./headscale.nix ];
+        ] ++ [ ./fail2ban.nix ./boot.nix ];
       };
 
       linode-image = linode.config.system.build.linodeImage;
