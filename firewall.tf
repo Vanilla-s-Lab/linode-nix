@@ -4,7 +4,7 @@ resource "linode_firewall" "nixos" {
 
   // noinspection MissingProperty
   inbound {
-    label    = "allow-dhcp"
+    label    = "allow-DHCP"
     protocol = "UDP"
     ports    = "67,68"
     ipv4     = ["0.0.0.0/0"]
