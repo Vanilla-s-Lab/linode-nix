@@ -42,6 +42,3 @@ terraform.rc
 
 # https://direnv.net/
 .direnv
-
-# JetBrains Fleet
-.fleet
