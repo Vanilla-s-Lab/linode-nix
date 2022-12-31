@@ -1,8 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
@@ -16,10 +14,10 @@
       linode = nixpkgs.lib.nixosSystem {
         inherit system;
 
-        modules = [{ system.stateVersion = "22.05"; }]
+        modules = [{ system.stateVersion = "22.11"; }]
           ++ [ ./users.nix ./network.nix ./services/openssh.nix ] ++ [
-          "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-config.nix"
-          "${nixpkgs-unstable}/nixos/modules/virtualisation/linode-image.nix"
+          "${nixpkgs}/nixos/modules/virtualisation/linode-config.nix"
+          "${nixpkgs}/nixos/modules/virtualisation/linode-image.nix"
         ] ++ [ ./services/fail2ban.nix ./boot.nix ./services/nginx.nix ];
       };
 
