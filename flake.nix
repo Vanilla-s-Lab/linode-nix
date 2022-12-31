@@ -4,7 +4,7 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, deploy-rs, ... }:
+  outputs = { nixpkgs, deploy-rs, ... }:
     let system = "x86_64-linux"; in
     rec {
       pkgs = import nixpkgs {
