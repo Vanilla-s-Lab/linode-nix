@@ -2,7 +2,6 @@ resource "linode_firewall" "nixos" {
   label   = "nixos"
   linodes = [linode_instance.nixos.id]
 
-  // noinspection MissingProperty
   inbound {
     label    = "allow-DHCP"
     protocol = "UDP"
@@ -15,7 +14,6 @@ resource "linode_firewall" "nixos" {
   inbound_policy  = "DROP"
   outbound_policy = "ACCEPT"
 
-  // noinspection MissingProperty
   inbound {
     label    = "accept-inbound-SSH"
     protocol = "TCP"
@@ -25,7 +23,6 @@ resource "linode_firewall" "nixos" {
     action   = "ACCEPT"
   }
 
-  // noinspection MissingProperty
   inbound {
     label    = "accept-inbound-HTTP"
     protocol = "TCP"
@@ -35,7 +32,6 @@ resource "linode_firewall" "nixos" {
     action   = "ACCEPT"
   }
 
-  // noinspection MissingProperty
   inbound {
     label    = "accept-inbound-HTTPS"
     protocol = "TCP"

@@ -44,7 +44,6 @@ resource "linode_instance_config" "nixos" {
   # https://api.linode.com/v4/linode/kernels
   kernel = "linode/grub2"
 
-  // noinspection HCLUnknownBlockType
   helpers {
     devtmpfs_automount = false
     distro             = false
@@ -53,11 +52,8 @@ resource "linode_instance_config" "nixos" {
     updatedb_disabled  = false
   }
 
-  // noinspection HCLUnknownBlockType
   devices {
-    // noinspection HCLUnknownBlockType
     sda { disk_id = linode_instance_disk.boot.id }
-    // noinspection HCLUnknownBlockType
     sdb { disk_id = linode_instance_disk.swap.id }
   }
 }

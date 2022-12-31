@@ -3,7 +3,6 @@ locals {
   img_files = fileset(path.module, "result/*.img.gz")
 }
 
-// noinspection MissingProperty
 resource "linode_image" "nixos" {
   label = "nixos"
 
