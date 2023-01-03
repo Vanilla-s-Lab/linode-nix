@@ -3,13 +3,12 @@ resource "linode_instance" "nixos" {
   region = "ap-northeast" # jp
 
   # https://api.linode.com/v4/linode/types
-  type   = "g6-nanode-1"
-  label  = "nixos"
+  type  = "g6-nanode-1"
+  label = "nixos"
 }
 
-output "ip_address" {
-  value = linode_instance.nixos.ip_address
-}
+output "ipv4_address" { value = tolist(linode_instance.nixos.ipv4)[0] }
+output "ipv6_address" { value = linode_instance.nixos.ipv6 } # /128
 
 locals {
   swap_size = 512
