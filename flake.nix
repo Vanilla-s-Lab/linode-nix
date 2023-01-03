@@ -28,6 +28,7 @@
           ./services/fail2ban.nix
 
           ./extra/HentaiAtHome.nix
+          ./extra/zlib-searcher.nix
         ];
       };
 
