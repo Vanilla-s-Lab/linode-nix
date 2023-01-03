@@ -1,5 +1,5 @@
-resource "linode_firewall" "nixos" {
-  label   = "nixos"
+resource "linode_firewall" "default" {
+  label   = "default"
   linodes = [linode_instance.nixos.id]
 
   inbound {
