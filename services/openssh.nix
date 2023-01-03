@@ -2,14 +2,8 @@
 {
   services.openssh.enable = true;
 
-  # services.openssh.permitRootLogin = lib.mkForce "yes";
-  # services.openssh.passwordAuthentication = true;
-
-  # https://nmap.org/nsedoc/scripts/ssh-auth-methods.html
-  environment.systemPackages = [
-    pkgs.nmap
-  ];
-
+  # https://nixos.wiki/wiki/SSH_public_key_authentication
+  services.openssh.passwordAuthentication = false;
   services.openssh.kbdInteractiveAuthentication = false;
 
   users.users."root".openssh.authorizedKeys.keyFiles = lib.singleton (pkgs.fetchurl {
