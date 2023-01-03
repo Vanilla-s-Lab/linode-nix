@@ -10,6 +10,5 @@ resource "linode_image" "nixos" {
   file_path = tolist(local.img_files)[0]
   file_hash = filemd5(tolist(local.img_files)[0])
 
-  // TODO: Use "ap-northeast" instead.
   region = "us-east"
 }
