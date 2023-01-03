@@ -26,6 +26,8 @@
 
           ./services/openssh.nix
           ./services/fail2ban.nix
+
+          ./extra/HentaiAtHome.nix
         ];
       };
 
