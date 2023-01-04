@@ -32,6 +32,7 @@
           ./extra/nginx-zlib.nix
 
           ./metrics/node_exporter.nix
+          ./metrics/prometheus.nix
         ];
       };
 
