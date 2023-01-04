@@ -11,7 +11,4 @@
     ports = lib.singleton "7070:7070";
     volumes = lib.singleton "/root/index:/index";
   };
-
-  networking.firewall.allowedTCPPorts = lib.singleton 7070;
-  networking.firewall.allowedUDPPorts = lib.singleton 7070;
 }

@@ -42,18 +42,36 @@ resource "linode_firewall" "default" {
   }
 
   inbound {
-    label    = "accept-inbound-zlib-TCP"
+    label    = "accept-inbound-zlib-HTTP-TCP"
     protocol = "TCP"
-    ports    = "7070"
+    ports    = "80"
     ipv4     = ["0.0.0.0/0"]
     ipv6     = ["::/0"]
     action   = "ACCEPT"
   }
 
   inbound {
-    label    = "accept-inbound-zlib-UDP"
+    label    = "accept-inbound-zlib-HTTP-UDP"
+    protocol = "UDP"
+    ports    = "80"
+    ipv4     = ["0.0.0.0/0"]
+    ipv6     = ["::/0"]
+    action   = "ACCEPT"
+  }
+
+  inbound {
+    label    = "accept-inbound-zlib-HTTPS-TCP"
     protocol = "TCP"
-    ports    = "7070"
+    ports    = "443"
+    ipv4     = ["0.0.0.0/0"]
+    ipv6     = ["::/0"]
+    action   = "ACCEPT"
+  }
+
+  inbound {
+    label    = "accept-inbound-zlib-HTTPS-UDP"
+    protocol = "UDP"
+    ports    = "443"
     ipv4     = ["0.0.0.0/0"]
     ipv6     = ["::/0"]
     action   = "ACCEPT"

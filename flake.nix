@@ -29,6 +29,7 @@
 
           ./extra/HentaiAtHome.nix
           ./extra/zlib-searcher.nix
+          ./extra/nginx-zlib.nix
         ];
       };
 
