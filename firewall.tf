@@ -34,7 +34,7 @@ resource "linode_firewall" "default" {
 
   inbound {
     label    = "accept-inbound-HAH-UDP"
-    protocol = "TCP"
+    protocol = "UDP"
     ports    = "33279"
     ipv4     = ["0.0.0.0/0"]
     ipv6     = ["::/0"]
