@@ -6,6 +6,7 @@ let web-config = pkgs.writeTextFile {
     basic_auth_users = {
 
       vanilla = "$2y$10$5APAJyhf4/20kQgT1rM7Xeag4/fZo5qG6.3WaOMSFXsR5PZlnNTLW";
+      grafana = "$2y$10$L3f.bw.516O6UsHvGy04VehG3P4VfizeS5AnUsv/h8tDpxyr.NXuO";
     };
   };
 }; in

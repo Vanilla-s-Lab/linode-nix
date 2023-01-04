@@ -33,6 +33,7 @@
 
           ./metrics/node_exporter.nix
           ./metrics/prometheus.nix
+          ./metrics/grafana.nix
         ];
       };
 
