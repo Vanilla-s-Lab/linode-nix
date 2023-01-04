@@ -14,6 +14,9 @@ let web-config = pkgs.writeTextFile {
   services.prometheus.enable = true;
   services.prometheus.listenAddress = "127.0.0.1";
 
+  # Fix: Grafana Prometheus $__rate_interval defaults.
+  services.prometheus.globalConfig.scrape_interval = "15s";
+
   # https://prometheus.io/docs/prometheus/latest/configuration/https/
   services.prometheus.extraFlags = [ "--web.config.file=${web-config}" ];
 
