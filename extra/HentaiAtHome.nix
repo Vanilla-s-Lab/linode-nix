@@ -12,6 +12,9 @@
     serviceConfig = {
       "ExecStart" = "${pkgs.HentaiAtHome}/bin/HentaiAtHome";
       "WorkingDirectory" = "/root"; # Credential: data/client_login
+
+      "Restart" = "always";
+      "Type" = "simple";
     };
   };
 
