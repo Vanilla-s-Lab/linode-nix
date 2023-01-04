@@ -5,8 +5,8 @@
   systemd.services."HAH" = {
     enable = true;
 
-    # https://mysystemd.talos.sh/
-    after = lib.singleton "network.target";
+    # https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/
+    after = lib.singleton "network-online.target";
     wants = lib.singleton "network-online.target";
 
     serviceConfig = {
