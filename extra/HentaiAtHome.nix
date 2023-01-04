@@ -18,6 +18,6 @@
   # https://www.reddit.com/r/NixOS/comments/rezf0s/how_to_run_script_on_startup/
   systemd.services."HAH".wantedBy = lib.singleton "multi-user.target";
 
-  networking.firewall.allowedTCPPorts = lib.singleton 443;
-  networking.firewall.allowedUDPPorts = lib.singleton 443;
+  networking.firewall.allowedTCPPorts = lib.singleton 33279;
+  networking.firewall.allowedUDPPorts = lib.singleton 33279;
 }
