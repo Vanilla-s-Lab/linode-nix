@@ -8,7 +8,7 @@
     enableACME = true;
 
     locations."/" = {
-      proxyPass = "http://0.0.0.0:7070";
+      proxyPass = "http://127.0.0.1:7070";
     };
 
     http3 = true;
