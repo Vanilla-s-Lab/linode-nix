@@ -28,8 +28,8 @@
           ./services/fail2ban.nix
 
           ./extra/HentaiAtHome.nix
-          ./extra/zlib-searcher.nix
-          ./extra/nginx-zlib.nix
+          ./extra/book-searcher.nix
+          ./extra/nginx-book.nix
 
           ./metrics/node_exporter.nix
           ./metrics/prometheus.nix

@@ -3,7 +3,7 @@
   services.nginx.enable = true;
 
   services.nginx.virtualHosts = {
-    "zlib.vergedx.me" = {
+    "book.vergedx.me" = {
       addSSL = true;
       enableACME = true;
 
