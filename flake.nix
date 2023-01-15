@@ -30,6 +30,7 @@
           ./extra/HentaiAtHome.nix
           ./extra/book-searcher.nix
           ./extra/nginx-book.nix
+          ./extra/vaultwarden.nix
 
           ./metrics/node_exporter.nix
           ./metrics/prometheus.nix
