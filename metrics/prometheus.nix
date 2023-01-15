@@ -1,15 +1,17 @@
 { pkgs, lib, ... }:
-let web-config = pkgs.writeTextFile {
+let
+  web-config = pkgs.writeTextFile {
 
-  name = "web-config.yml";
-  text = lib.generators.toYAML { } {
-    basic_auth_users = {
+    name = "web-config.yml";
+    text = lib.generators.toYAML { } {
+      basic_auth_users = {
 
-      vanilla = "$2y$10$5APAJyhf4/20kQgT1rM7Xeag4/fZo5qG6.3WaOMSFXsR5PZlnNTLW";
-      grafana = "$2y$10$2yceafrMbtVhTs3GQ81b..VKDEyPbcAd5hmBUOh0WoFHjEocDeo4e";
+        vanilla = "$2y$10$5APAJyhf4/20kQgT1rM7Xeag4/fZo5qG6.3WaOMSFXsR5PZlnNTLW";
+        grafana = "$2y$10$2yceafrMbtVhTs3GQ81b..VKDEyPbcAd5hmBUOh0WoFHjEocDeo4e";
+      };
     };
   };
-}; in
+in
 {
   services.prometheus.enable = true;
   services.prometheus.listenAddress = "127.0.0.1";
