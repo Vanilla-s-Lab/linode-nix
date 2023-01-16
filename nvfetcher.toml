@@ -1,0 +1,3 @@
+[csgo_exporter]
+src.github = "kinduff/csgo_exporter"
+fetch.github = "kinduff/csgo_exporter"

@@ -10,6 +10,7 @@
 
     let system = "x86_64-linux"; in
     let pkgs = nixpkgs.legacyPackages.${system}; in
+    let generated = pkgs.callPackage ./_sources/generated.nix { }; in
 
     rec {
       linode = nixpkgs.lib.nixosSystem {
@@ -37,6 +38,8 @@
           ./metrics/grafana.nix
           ./metrics/nginx-exporter.nix
         ];
+
+        specialArgs = { inherit generated; };
       };
 
       # nix build .#linode-image.x86_64-linux -v -L
@@ -50,5 +53,7 @@
           deploy-rs.lib."${system}".activate.nixos
             linode;
       };
+
+      csgo_exporter = pkgs.callPackage ./pkgs/csgo_exporter.nix { inherit generated; };
     };
 }
