@@ -1,0 +1,10 @@
+keys:
+  - &vanilla 2649340CC909F821D25167143750028ED04FA42E
+  - &nixos-linode f9e82d9ddbf1227eb32758f09bdef9fc3421373e
+
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - pgp:
+          - *vanilla
+          - *nixos-linode

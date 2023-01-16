@@ -4,9 +4,15 @@
 
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-cn.url = "github:nixos-cn/flakes";
+    nixos-cn.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, deploy-rs, ... }:
+  outputs = { nixpkgs, deploy-rs, sops-nix, nixos-cn, ... }:
 
     let system = "x86_64-linux"; in
     let pkgs = nixpkgs.legacyPackages.${system}; in
@@ -37,6 +43,12 @@
           ./metrics/prometheus.nix
           ./metrics/grafana.nix
           ./metrics/nginx-exporter.nix
+
+          sops-nix.nixosModules.sops
+          nixos-cn.nixosModules.nixos-cn
+
+          ./sops-config/csgo_exporter.nix
+          ./metrics/csgo_exporter.nix
         ];
 
         specialArgs = { inherit generated; };
