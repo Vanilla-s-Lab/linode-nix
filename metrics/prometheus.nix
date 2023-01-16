@@ -36,7 +36,10 @@ in
   services.prometheus.scrapeConfigs = [{
     job_name = "localhost";
     static_configs = [{
-      targets = [ "127.0.0.1:9100" ];
+      targets = [
+        "127.0.0.1:9100"
+        "127.0.0.1:9113"
+      ];
     }];
   }];
 }
