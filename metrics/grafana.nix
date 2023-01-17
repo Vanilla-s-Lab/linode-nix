@@ -1,10 +1,11 @@
 { ... }:
 {
   services.grafana.enable = true;
-  services.grafana.settings = {
+  services.grafana.settings = rec {
     server.http_addr = "127.0.0.1";
 
     server.domain = "grafana.vergedx.me";
+    server.root_url = "https://${server.domain}/";
   };
 
   services.nginx.upstreams."grafana".servers = {
