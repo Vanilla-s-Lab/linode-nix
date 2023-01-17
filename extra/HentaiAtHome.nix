@@ -22,5 +22,5 @@
   systemd.services."HAH".wantedBy = lib.singleton "multi-user.target";
 
   networking.firewall.allowedTCPPorts = lib.singleton 33279;
-  networking.firewall.allowedUDPPorts = lib.singleton 33279;
+  # networking.firewall.allowedUDPPorts = lib.singleton 33279;
 }
