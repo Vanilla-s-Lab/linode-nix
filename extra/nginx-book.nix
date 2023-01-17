@@ -17,5 +17,5 @@
   security.acme.defaults.email = "osu_Vanilla@126.com";
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  networking.firewall.allowedUDPPorts = [ 80 443 ];
+  # networking.firewall.allowedUDPPorts = [ 80 443 ];
 }
