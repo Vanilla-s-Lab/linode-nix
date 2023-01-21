@@ -15,7 +15,7 @@ in
     after = [ "network.target" ];
 
     serviceConfig = {
-      "ExecStart" = "${pkgs_csgo_exporter}/bin/csgo_exporter -steam_id 76561198319100373 -scrape_interval 2m";
+      "ExecStart" = "${pkgs_csgo_exporter}/bin/csgo_exporter -steam_id 76561198319100373 -scrape_interval 4m";
       "Restart" = "always";
 
       # https://flatcar-linux.org/docs/latest/setup/systemd/environment-variables/
