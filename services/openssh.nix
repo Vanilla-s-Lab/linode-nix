@@ -3,8 +3,8 @@
   services.openssh.enable = true;
 
   # https://nixos.wiki/wiki/SSH_public_key_authentication
-  services.openssh.passwordAuthentication = false;
-  services.openssh.kbdInteractiveAuthentication = false;
+  services.openssh.settings.passwordAuthentication = false;
+  services.openssh.settings.kbdInteractiveAuthentication = false;
 
   users.users."root".openssh.authorizedKeys.keyFiles = lib.singleton (pkgs.fetchurl {
     url = "https://github.com/VergeDX.keys"; # Yubikeys 5 NFC
