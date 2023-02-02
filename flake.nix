@@ -33,6 +33,7 @@
 
           ./services/openssh.nix
           ./services/fail2ban.nix
+          ./services/wireguard.nix
 
           ./extra/HentaiAtHome.nix
           ./extra/book-searcher.nix
