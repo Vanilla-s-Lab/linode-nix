@@ -18,7 +18,7 @@
     # dig las1.us.dn42.miaotony.xyz TXT +short | sed 's/[" ]//g' | base64 -d
 
     postSetup = ''
-      ${pkgs.iproute}/bin/ip addr add 172.22.130.96/32 peer 172.23.6.6/32 dev dn42-peer
+      ${pkgs.iproute}/bin/ip addr add 172.22.130.97/32 peer 172.23.6.6/32 dev dn42-peer
       ${pkgs.iproute}/bin/ip -6 addr add fd13:f622:f715::/128 peer fd00:feed:ca7::6/128 dev dn42-peer
     '';
   };
