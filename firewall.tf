@@ -51,7 +51,7 @@ resource "linode_firewall" "default" {
   }
 
   inbound {
-    label    = "accept-inbound-dn42-peer"
+    label    = "accept-inbound-WG"
     protocol = "UDP"
     ports    = "22688"
     ipv4     = ["0.0.0.0/0"]
