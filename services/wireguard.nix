@@ -4,7 +4,7 @@
   networking.wireguard.interfaces."dn42-peer" = {
 
     # privateKey = "";
-    privateKeyFile = "/root/wireguard-keys/private";
+    privateKeyFile = "/run/secrets/wireguard-keys/private";
 
     allowedIPsAsRoutes = false;
     listenPort = 22688;

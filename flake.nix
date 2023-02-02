@@ -33,6 +33,8 @@
 
           ./services/openssh.nix
           ./services/fail2ban.nix
+
+          ./sops-config/wireguard-keys.nix
           ./services/wireguard.nix
 
           ./extra/HentaiAtHome.nix
