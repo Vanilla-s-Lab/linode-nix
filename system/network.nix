@@ -7,12 +7,17 @@
 
   systemd.network.enable = true;
 
-  systemd.network.netdevs."dummy" = {
-    netdevConfig = { Name = "dummy"; Kind = "dummy"; };
+  systemd.network.netdevs."bgp" = {
+    netdevConfig = {
+      Name = "bgp";
+      Kind = "dummy";
+    };
   };
 
-  systemd.network.networks."dummy" = {
-    matchConfig = { Name = "dummy"; };
+  systemd.network.networks."bgp" = {
+    matchConfig = {
+      Name = "bgp";
+    };
 
     address = [
       "172.22.130.97"
