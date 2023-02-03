@@ -58,4 +58,13 @@ resource "linode_firewall" "default" {
     ipv6     = ["::/0"]
     action   = "ACCEPT"
   }
+
+  inbound {
+    label    = "accept-inbound-BGP"
+    protocol = "UDP"
+    ports    = "179"
+    ipv4     = ["0.0.0.0/0"]
+    ipv6     = ["::/0"]
+    action   = "ACCEPT"
+  }
 }

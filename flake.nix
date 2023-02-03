@@ -33,6 +33,7 @@
 
           ./services/openssh.nix
           ./services/fail2ban.nix
+          ./services/bird2.nix
 
           ./sops-config/wireguard-keys.nix
           ./services/wireguard.nix
