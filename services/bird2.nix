@@ -2,9 +2,10 @@
 {
   # https://dn42.dev/howto/Bird2
   services.bird2.enable = true;
-  services.bird2.checkConfig = false;
+  # services.bird2.checkConfig = false;
 
-  # /etc/bird/bird2.conf
+  # https://bgp42.strexp.net/asinfo/4242421317
+
   services.bird2.config = ''
     ################################################
     #               Variable header                #
@@ -35,7 +36,11 @@
 
         ipv6 {
             import none;
-            export all;
+            export filter {
+                if source = RTS_STATIC then reject;
+                krt_prefsrc = OWNIPv6;
+                accept;
+            };
         };
     };
 
@@ -44,7 +49,11 @@
 
         ipv4 {
             import none;
-            export all;
+            export filter {
+                if source = RTS_STATIC then reject;
+                krt_prefsrc = OWNIP;
+                accept;
+            };
         };
     }
 
@@ -75,12 +84,12 @@
             extended next hop on;
 
             import all;
-            export none;
+            export all;
         };
 
         ipv6 {
             import all;
-            export none;
+            export all;
         };
     }
 
