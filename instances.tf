@@ -7,8 +7,10 @@ resource "linode_instance" "nixos" {
   label = "nixos"
 }
 
-output "ipv4_address" { value = tolist(linode_instance.nixos.ipv4)[0] }
-output "ipv6_address" { value = linode_instance.nixos.ipv6 } # /128
+# https://github.com/linode/terraform-provider-linode/releases/tag/v1.30.0
+data "linode_instance_networking" "nixos" { linode_id = linode_instance.nixos.id }
+output "ipv4_address" { value = data.linode_instance_networking.nixos.ipv4[0].public[0].address }
+output "ipv6_address" { value = data.linode_instance_networking.nixos.ipv6[0].slaac[0].address }
 
 locals {
   swap_size = 512
