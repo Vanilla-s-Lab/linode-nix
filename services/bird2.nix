@@ -67,12 +67,12 @@
             extended next hop on;
 
             import all;
-            export all;
+            export none;
         };
 
         ipv6 {
             import all;
-            export all;
+            export none;
         };
     }
 
