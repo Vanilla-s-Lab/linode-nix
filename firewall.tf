@@ -67,4 +67,13 @@ resource "linode_firewall" "default" {
     ipv6     = ["::/0"]
     action   = "ACCEPT"
   }
+
+  inbound {
+    label    = "accept-inbound-pykms"
+    protocol = "TCP"
+    ports    = "1688"
+    ipv4     = ["0.0.0.0/0"]
+    ipv6     = ["::/0"]
+    action   = "ACCEPT"
+  }
 }

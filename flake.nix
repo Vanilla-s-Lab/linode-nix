@@ -33,6 +33,8 @@
 
           ./services/openssh.nix
           ./services/fail2ban.nix
+          ./services/pykms.nix
+
           ./services/bird2.nix
           ./metrics/bird_exporter.nix
 
