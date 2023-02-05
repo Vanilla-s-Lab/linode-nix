@@ -25,6 +25,9 @@
 
   '' + ''
 
+    # https://github.com/czerwonk/bird_exporter
+    timeformat protocol     iso long;
+
     router id OWNIP;
 
     protocol device {

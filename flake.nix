@@ -34,6 +34,7 @@
           ./services/openssh.nix
           ./services/fail2ban.nix
           ./services/bird2.nix
+          ./metrics/bird_exporter.nix
 
           ./sops-config/wireguard-keys.nix
           ./services/wireguard.nix
