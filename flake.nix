@@ -34,12 +34,6 @@
           ./services/openssh.nix
           ./services/fail2ban.nix
 
-          ./services/bird2.nix
-          ./metrics/bird_exporter.nix
-
-          ./sops-config/wireguard-keys.nix
-          ./services/wireguard.nix
-
           ./extra/HentaiAtHome.nix
           ./extra/book-searcher.nix
           ./extra/nginx-book.nix
